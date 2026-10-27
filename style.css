@@ -1,0 +1,1485 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+    font-family:"Poppins",sans-serif;
+    background:#064d80;
+}
+
+:root{
+    --blue:#064d80;
+    --dark-blue:#043e68;
+    --blue-light:#0b659c;
+    --white:#fff;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.intro-blue,
+.intro-white{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    transition:
+        transform 1s cubic-bezier(.77,0,.18,1);
+}
+
+.intro-blue{
+    background:var(--blue);
+    color:white;
+}
+
+.intro-inner{
+    animation:introIn 1.3s ease;
+}
+
+.intro-blue small{
+    font-family:"Comic Neue",cursive;
+    font-size:18px;
+}
+
+.intro-blue h1{
+    font-size:clamp(70px,10vw,145px);
+    line-height:.9;
+
+    margin:20px 0;
+
+    font-weight:800;
+
+    transform:rotate(-4deg);
+}
+
+.intro-blue p{
+    letter-spacing:7px;
+}
+
+.intro-white{
+    background:white;
+    color:var(--blue);
+
+    transform:translateY(100%);
+}
+
+.intro-white small{
+    letter-spacing:4px;
+}
+
+.intro-white h2{
+    font-size:clamp(60px,8vw,110px);
+    line-height:.85;
+
+    margin-top:15px;
+}
+
+.intro.hide .intro-blue{
+    transform:translateY(-100%);
+}
+
+.intro.hide .intro-white{
+    transform:translateY(-100%);
+}
+
+@keyframes introIn{
+
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/* =========================================
+   COMMON
+========================================= */
+
+.blue{
+    background:var(--blue);
+    color:white;
+}
+
+.white{
+    background:white;
+    color:var(--blue);
+}
+
+.pill,
+.white-pill{
+    display:inline-block;
+
+    border:2px solid currentColor;
+
+    border-radius:30px;
+
+    padding:4px 14px;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.white-pill{
+    color:white;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    min-height:640px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            #12699d 0%,
+            #075587 35%,
+            #064d80 70%,
+            #043e68 100%
+        );
+}
+
+.hero-left{
+    position:absolute;
+
+    left:7%;
+    top:45px;
+
+    width:52%;
+
+    z-index:10;
+}
+
+.creative-note{
+    font-family:"Comic Neue",cursive;
+
+    font-size:19px;
+
+    line-height:1.1;
+
+    transform:rotate(-5deg);
+}
+
+.creative-note span{
+    display:block;
+
+    font-size:35px;
+}
+
+.crown{
+    font-size:42px;
+
+    margin-left:145px;
+
+    transform:rotate(-10deg);
+}
+
+.hero-left h1{
+    font-size:clamp(65px,9vw,130px);
+
+    line-height:.9;
+
+    letter-spacing:-6px;
+
+    font-weight:800;
+
+    transform:rotate(-4deg);
+}
+
+.portfolio-line{
+    width:310px;
+    height:7px;
+
+    background:white;
+
+    border-radius:50%;
+
+    margin-left:140px;
+
+    transform:rotate(-2deg);
+}
+
+.hero-subtitle{
+    letter-spacing:6px;
+
+    font-size:18px;
+
+    margin-left:17%;
+}
+
+.hero-socials{
+    display:flex;
+
+    gap:18px;
+
+    margin-top:45px;
+}
+
+.hero-socials div{
+    width:44px;
+    height:44px;
+
+    border:2px solid white;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    font-weight:700;
+
+    transition:.35s;
+}
+
+.hero-socials div:hover{
+    color:var(--blue);
+
+    background:white;
+
+    transform:
+        translateY(-8px)
+        rotate(5deg);
+}
+
+
+/* =========================================
+   GIRL
+========================================= */
+
+.girl{
+    position:absolute;
+
+    z-index:7;
+
+    right:13%;
+    bottom:0;
+
+    width:38%;
+    height:100%;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.girl-light{
+    position:absolute;
+
+    width:340px;
+    height:340px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.14),
+            transparent 70%
+        );
+
+    top:65px;
+
+    filter:blur(8px);
+}
+
+.girl img{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center bottom;
+
+    display:block;
+
+    filter:
+        drop-shadow(0 18px 20px rgba(0,0,0,.22));
+
+    transition:.5s;
+}
+
+.girl:hover img{
+    transform:scale(1.025);
+}
+
+
+/* =========================================
+   HERO RIGHT
+========================================= */
+
+.hero-right{
+    position:absolute;
+
+    z-index:15;
+
+    right:3.5%;
+    top:25px;
+}
+
+.headphones{
+    font-size:50px;
+
+    text-align:right;
+
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0) rotate(-4deg);
+    }
+
+    50%{
+        transform:translateY(-8px) rotate(4deg);
+    }
+
+}
+
+.designing-note{
+    font-family:"Comic Neue",cursive;
+
+    font-size:21px;
+
+    text-align:center;
+
+    line-height:1.05;
+
+    transform:rotate(-5deg);
+}
+
+.designing-note span{
+    display:block;
+
+    font-size:40px;
+}
+
+.clapper{
+    font-size:50px;
+
+    text-align:right;
+
+    transform:rotate(7deg);
+}
+
+.doodle{
+    position:absolute;
+
+    color:white;
+
+    z-index:5;
+}
+
+.cassette{
+    left:-10px;
+    top:105px;
+
+    font-size:55px;
+
+    transform:rotate(-15deg);
+}
+
+.star1{
+    left:65px;
+    top:185px;
+
+    font-size:30px;
+}
+
+.record{
+    left:25px;
+    bottom:20px;
+
+    width:65px;
+    height:65px;
+
+    border:3px solid white;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    font-size:30px;
+}
+
+.hero-lines{
+    position:absolute;
+
+    color:white;
+
+    font-size:35px;
+
+    z-index:4;
+}
+
+.line-one{
+    left:52%;
+    top:75px;
+}
+
+.line-two{
+    right:38%;
+    bottom:80px;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about{
+    padding:55px 5%;
+}
+
+.about-grid{
+    max-width:1450px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr
+        .75fr
+        1.1fr;
+
+    gap:40px;
+
+    align-items:center;
+}
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.about-text h2{
+    font-size:clamp(48px,5vw,78px);
+
+    line-height:.9;
+
+    margin:
+        14px 0 20px;
+}
+
+.about-text p{
+    color:#135987;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+}
+
+
+/* design */
+
+.design-card{
+    position:relative;
+
+    transform:
+        translateY(45px)
+        rotate(-7deg);
+}
+
+.design-card.show{
+    transform:
+        translateY(0)
+        rotate(-7deg);
+}
+
+.design-card img{
+    width:100%;
+
+    display:block;
+
+    padding:9px;
+
+    background:white;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.2);
+}
+
+.blue-tape{
+    position:absolute;
+
+    z-index:2;
+
+    top:-8px;
+    left:20px;
+
+    width:90px;
+    height:23px;
+
+    background:#126fa8;
+
+    transform:rotate(-5deg);
+}
+
+.design-note{
+    position:absolute;
+
+    right:-75px;
+    top:20%;
+
+    font-family:"Comic Neue",cursive;
+
+    font-size:19px;
+
+    transform:rotate(-5deg);
+}
+
+.design-note span{
+    display:block;
+
+    font-size:38px;
+}
+
+
+/* education */
+
+.education-heading{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+}
+
+.education-heading h2{
+    font-size:clamp(36px,4vw,55px);
+
+    line-height:.9;
+}
+
+.graduation{
+    font-size:40px;
+}
+
+.edu-item{
+    position:relative;
+
+    padding:
+        15px 70px 15px 0;
+
+    border-bottom:
+        1px solid #aacfe5;
+}
+
+.edu-item strong{
+    font-size:18px;
+}
+
+.edu-item p{
+    font-size:14px;
+}
+
+.edu-badge{
+    position:absolute;
+
+    right:0;
+    top:18px;
+
+    padding:7px 10px;
+
+    border:2px solid #087cc0;
+
+    border-radius:10px;
+
+    font-size:12px;
+}
+
+.computer{
+    position:absolute;
+
+    right:0;
+    top:22px;
+
+    font-size:25px;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills{
+    padding:55px 6%;
+}
+
+.skills-top{
+    max-width:1300px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.bulb{
+    font-size:65px;
+}
+
+.skills-top h2{
+    font-size:clamp(45px,5vw,72px);
+
+    line-height:.9;
+
+    margin-top:10px;
+}
+
+.happy{
+    margin-left:auto;
+
+    font-family:"Comic Neue",cursive;
+
+    font-size:20px;
+
+    text-align:center;
+
+    transform:rotate(6deg);
+}
+
+.happy span{
+    font-size:30px;
+}
+
+.tools{
+    max-width:1100px;
+
+    margin:
+        35px auto 10px;
+
+    font-family:"Comic Neue",cursive;
+
+    font-size:18px;
+
+    text-decoration:underline;
+}
+
+.tools b{
+    font-size:30px;
+
+    margin-left:8px;
+}
+
+.software{
+    max-width:1000px;
+
+    margin:
+        20px auto 40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:45px;
+
+    flex-wrap:wrap;
+}
+
+.software-box{
+    text-align:center;
+}
+
+.software-icon{
+    width:65px;
+    height:65px;
+
+    margin:auto auto 9px;
+
+    border:
+        1px solid white;
+
+    border-radius:12px;
+
+    display:grid;
+    place-items:center;
+
+    font-weight:800;
+
+    font-size:28px;
+}
+
+.ps{
+    background:#092f4d;
+    color:#22a8ff;
+}
+
+.ai{
+    background:#512600;
+    color:#ff9b00;
+}
+
+.corel{
+    background:#087b37;
+}
+
+.canva{
+    background:#09a9e5;
+
+    font-size:12px;
+}
+
+.id{
+    background:#690b35;
+    color:#ff3b87;
+}
+
+.software-box p{
+    font-size:12px;
+}
+
+.skill-categories{
+    max-width:1050px;
+
+    margin:auto;
+
+    border-top:
+        1px solid rgba(255,255,255,.5);
+
+    padding-top:20px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+}
+
+.skill-categories div{
+    text-align:center;
+
+    padding:
+        8px 20px;
+
+    border-right:
+        1px solid rgba(255,255,255,.4);
+}
+
+.skill-categories div:last-child{
+    border:none;
+}
+
+.skill-categories b{
+    font-size:30px;
+}
+
+.skill-categories p{
+    font-size:12px;
+
+    margin-top:8px;
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.social{
+    min-height:285px;
+
+    padding:
+        50px 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:55px;
+}
+
+.social-title{
+    min-width:280px;
+}
+
+.social-title h2{
+    font-size:clamp(45px,5vw,68px);
+
+    line-height:.9;
+
+    margin-top:12px;
+}
+
+.social-list{
+    flex:1;
+
+    display:flex;
+
+    justify-content:space-around;
+}
+
+.social-item{
+    text-align:center;
+
+    text-decoration:none;
+
+    color:var(--blue);
+
+    transition:.35s;
+}
+
+.social-item:hover{
+    transform:translateY(-10px);
+}
+
+.social-item div{
+    width:65px;
+    height:65px;
+
+    margin:auto auto 8px;
+
+    display:grid;
+    place-items:center;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:23px;
+}
+
+.up{
+    background:#15a83c;
+
+    border-radius:50%;
+}
+
+.linkedin{
+    background:#0877bd;
+
+    border-radius:12px;
+}
+
+.instagram{
+    background:
+        linear-gradient(
+            45deg,
+            #f9ce34,
+            #ee2a7b,
+            #6228d7
+        );
+
+    border-radius:12px;
+}
+
+.connect{
+    font-family:"Comic Neue",cursive;
+
+    font-size:24px;
+
+    transform:rotate(-7deg);
+}
+
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+.experience{
+    min-height:570px;
+
+    padding:
+        65px 6%;
+
+    display:grid;
+
+    grid-template-columns:
+        .75fr
+        1.7fr;
+
+    gap:45px;
+
+    align-items:center;
+}
+
+.experience-heading h2{
+    font-size:clamp(55px,6vw,90px);
+
+    line-height:.9;
+
+    margin-top:15px;
+}
+
+.arrow{
+    font-size:75px;
+
+    margin-top:20px;
+}
+
+.certificate{
+    position:relative;
+
+    text-align:center;
+
+    transform:
+        translateY(45px)
+        rotate(-3deg);
+}
+
+.certificate.show{
+    transform:
+        translateY(0)
+        rotate(-3deg);
+}
+
+.certificate img{
+    width:min(650px,90%);
+
+    padding:10px;
+
+    background:white;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35);
+
+    transition:.5s;
+}
+
+.certificate img:hover{
+    transform:
+        rotate(2deg)
+        scale(1.03);
+}
+
+.certificate-tape{
+    position:absolute;
+
+    z-index:3;
+
+    width:105px;
+    height:24px;
+
+    left:34%;
+    top:-7px;
+
+    background:#146da6;
+
+    transform:rotate(-4deg);
+}
+
+.certificate-note{
+    position:absolute;
+
+    right:-5px;
+    top:35%;
+
+    font-family:"Comic Neue",cursive;
+
+    font-size:24px;
+
+    transform:rotate(7deg);
+}
+
+.certificate-note span{
+    display:block;
+
+    font-size:45px;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider{
+    height:170px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:white;
+}
+
+.divider-top,
+.divider-bottom{
+    position:absolute;
+
+    left:-2%;
+    width:104%;
+
+    height:32px;
+
+    background:var(--blue);
+
+    clip-path:
+        polygon(
+            0 40%,
+            5% 10%,
+            10% 65%,
+            15% 20%,
+            20% 70%,
+            25% 20%,
+            30% 65%,
+            36% 15%,
+            42% 68%,
+            48% 20%,
+            55% 65%,
+            62% 15%,
+            68% 70%,
+            75% 20%,
+            82% 65%,
+            89% 15%,
+            96% 65%,
+            100% 30%,
+            100% 100%,
+            0 100%
+        );
+}
+
+.divider-top{
+    top:-12px;
+}
+
+.divider-bottom{
+    bottom:-12px;
+
+    transform:rotate(180deg);
+}
+
+.divider-card{
+    z-index:5;
+
+    padding:
+        13px 35px;
+
+    border:
+        2px solid var(--blue);
+
+    background:white;
+
+    text-align:center;
+
+    transform:rotate(-2deg);
+
+    box-shadow:
+        7px 7px 0 rgba(6,77,128,.15);
+}
+
+.divider-card small{
+    display:block;
+
+    font-family:"Comic Neue",cursive;
+
+    letter-spacing:3px;
+
+    font-size:11px;
+}
+
+.divider-card strong{
+    display:block;
+
+    font-size:40px;
+
+    line-height:1;
+}
+
+.divider-card span{
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+.divider-icon{
+    position:absolute;
+
+    z-index:6;
+
+    bottom:23px;
+
+    width:50px;
+    height:50px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    border:3px solid white;
+}
+
+
+/* =========================================
+   PASSION
+========================================= */
+
+.passion{
+    padding:
+        60px 6%
+        90px;
+}
+
+.passion-grid{
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.passion-text h2{
+    font-size:clamp(48px,5vw,72px);
+
+    line-height:.9;
+
+    margin:
+        15px 0;
+}
+
+.passion-text p{
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.project-card{
+    position:relative;
+
+    padding:10px;
+
+    background:white;
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.35);
+
+    transform:rotate(-6deg);
+}
+
+.project-card:hover{
+    transform:
+        rotate(0)
+        translateY(-12px);
+}
+
+.project-card img{
+    display:block;
+
+    width:100%;
+}
+
+.project-tape{
+    position:absolute;
+
+    z-index:3;
+
+    left:40%;
+    top:-9px;
+
+    width:85px;
+    height:23px;
+
+    background:#146da6;
+
+    transform:rotate(-4deg);
+}
+
+.mini-crown{
+    position:absolute;
+
+    left:8%;
+    top:-30px;
+
+    font-size:25px;
+}
+
+.work-message{
+    font-size:clamp(27px,3vw,44px);
+
+    font-weight:800;
+
+    line-height:1.08;
+
+    transform:rotate(-5deg);
+}
+
+.work-message.show{
+    opacity:1;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+    background:var(--dark-blue);
+
+    color:white;
+
+    text-align:center;
+
+    padding:18px;
+
+    font-size:13px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:950px){
+
+    .girl{
+        width:48%;
+        right:2%;
+    }
+
+    .hero-left{
+        width:72%;
+    }
+
+    .hero-right{
+        display:none;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .design-card{
+        width:420px;
+        max-width:90%;
+
+        margin:auto;
+    }
+
+    .education{
+        margin-top:20px;
+    }
+
+    .social{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .social-list{
+        width:100%;
+    }
+
+    .experience{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .passion-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-card{
+        max-width:550px;
+
+        margin:auto;
+    }
+
+    .work-message{
+        text-align:center;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:550px;
+    }
+
+    .hero-left{
+        left:5%;
+        top:35px;
+    }
+
+    .hero-left h1{
+        font-size:57px;
+
+        letter-spacing:-4px;
+    }
+
+    .portfolio-line{
+        width:180px;
+
+        margin-left:45px;
+    }
+
+    .hero-subtitle{
+        font-size:9px;
+
+        letter-spacing:3px;
+
+        margin-left:5%;
+    }
+
+    .hero-socials{
+        gap:7px;
+
+        margin-top:25px;
+    }
+
+    .hero-socials div{
+        width:35px;
+        height:35px;
+
+        font-size:11px;
+    }
+
+    .girl{
+        width:63%;
+
+        right:-7%;
+    }
+
+    .cassette{
+        display:none;
+    }
+
+    .about{
+        padding:45px 6%;
+    }
+
+    .design-note{
+        display:none;
+    }
+
+    .skills{
+        padding:45px 6%;
+    }
+
+    .bulb{
+        font-size:45px;
+    }
+
+    .happy{
+        display:none;
+    }
+
+    .skill-categories{
+        grid-template-columns:1fr;
+    }
+
+    .skill-categories div{
+        border-right:0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,.3);
+
+        padding:15px;
+    }
+
+    .social-list{
+        gap:15px;
+    }
+
+    .social-item div{
+        width:55px;
+        height:55px;
+    }
+
+    .connect{
+        font-size:20px;
+    }
+
+    .certificate-note{
+        position:relative;
+
+        top:auto;
+        right:auto;
+
+        margin-top:25px;
+    }
+
+    .divider{
+        height:140px;
+    }
+
+    .divider-card{
+        padding:
+            10px 20px;
+    }
+
+    .passion{
+        padding:
+            50px 6%
+            80px;
+    }
+
+}
